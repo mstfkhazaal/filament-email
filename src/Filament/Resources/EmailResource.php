@@ -57,6 +57,19 @@ class EmailResource extends Resource
             return  __('Email log');
         }
     }
+     public static function getPluralLabel(): ?string
+    {
+       try{
+            $str =Config::get('filament-email.label_plural');
+            if($str == null){
+             return  __('Email logs');
+            }else{
+             return  __($str);
+            }
+        }catch(Exception  $ex){
+            return  __('Email logs');
+        }
+    }
 
     public static function getNavigationGroup(): ?string
     {
